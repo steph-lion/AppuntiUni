@@ -6,12 +6,12 @@ import java.io.OutputStreamWriter;
 import java.io.PrintWriter;
 import java.net.ServerSocket;
 import java.net.Socket;
+import java.util.Random;
 
 public class SocketServerMulti {
 
     static int port=12345;
     public static void main(String[] args) {
-        
         try {
             ServerSocket server=new ServerSocket(port);
             System.out.println("Server in ascolto sulla porta "+port);
@@ -38,15 +38,18 @@ public class SocketServerMulti {
         PrintWriter out=new PrintWriter(new BufferedWriter(new OutputStreamWriter(client.getOutputStream())),true);
         System.out.println("Thread in contatto con "+client.getInetAddress());
         while (true){
-            String msg=in.readLine();
-            System.out.println("Il client "+client.getInetAddress()+" ha detto: "+msg);
+            String msg=handleMessage(in.readLine());
             if (msg.equalsIgnoreCase("exit")) {
                 System.out.println("Il client "+client.getInetAddress()+" ha chiuso la connessione ");
                 break;
             }
+            System.out.println("Il client "+client.getInetAddress()+" ha detto: "+msg);
         }
         in.close();
         out.close();
         client.close();
+    }
+    public static String handleMessage(String msg){
+        return msg;
     }
 }
