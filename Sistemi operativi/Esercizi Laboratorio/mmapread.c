@@ -49,7 +49,7 @@ int main(int argc, char *argv[]) {
     // p[4]=55; // tentativo di modificare una pagina su una mappatura in sola lettura
     
     for (i = 0; i < sb.st_size; i++)
-        putchar(p[i]);
+        printf("%c",p[i]);
 
     if (munmap(p, sb.st_size) == -1) {
         perror("munmap");
